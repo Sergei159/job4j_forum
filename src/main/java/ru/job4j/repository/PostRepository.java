@@ -8,4 +8,6 @@ import ru.job4j.model.Post;
 public interface PostRepository extends CrudRepository<Post, Long> {
     Post findById(int id);
 
+    void deleteById(int id);
+
 }

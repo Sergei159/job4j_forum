@@ -35,10 +35,6 @@ public class RegController {
         return "regPage";
     }
 
-//    @GetMapping("/reg")
-//    public String regPage() {
-//        return "regPage";
-//    }
 
     @PostMapping("/reg")
     public String regSave(@ModelAttribute User user) {

@@ -1,5 +1,6 @@
 package ru.job4j.controller;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,24 +22,28 @@ public class PostController {
 
     @GetMapping("/index")
     public String index(Model model) {
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("posts", postService.findAll());
         return "index";
     }
 
     @GetMapping("/postInfo/{id}")
     public String detailsPost(Model model, @PathVariable("id") int id) {
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("post", postService.findById(id));
         return "postInfo";
     }
 
     @GetMapping("/edit/{id}")
     public String editPost(Model model, @PathVariable("id") int id) {
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         model.addAttribute("post", postService.findById(id));
         return "edit";
     }
 
     @GetMapping("/addPost")
-    public String newPost() {
+    public String newPost(Model model) {
+        model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "addPost";
     }
 

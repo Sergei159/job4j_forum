@@ -22,7 +22,13 @@ public class UserService {
         return rsl;
     }
 
-    public void save(User user) {
-        store.save(user);
+    public User save(User user) {
+        User result = null;
+        try {
+            result = store.save(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

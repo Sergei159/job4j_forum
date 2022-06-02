@@ -34,6 +34,10 @@
         <div class="navbar-nav">
             <a class="nav-item nav-link" th:href="@{/index}">Главная</a>
             <a class="nav-item nav-link active" href="#">Новая тема<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" th:href="@{/logout}">
+                <span th:text="${user.username}"></span>
+                <span> | Выйти</span>
+            </a>
         </div>
     </nav>
     <div class="row">

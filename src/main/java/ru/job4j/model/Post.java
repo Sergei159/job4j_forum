@@ -27,6 +27,8 @@ public class Post {
     public static Post of(String name) {
         Post post = new Post();
         post.name = name;
+        post.description = "";
+        post.created = Calendar.getInstance();
         return post;
     }
 

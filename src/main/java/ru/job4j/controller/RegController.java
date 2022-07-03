@@ -25,13 +25,20 @@ public class RegController {
         this.authorityService = authorityService;
     }
 
+    /**
+//    @GetMapping("/reg")
+//    public String regPage(Model model,
+//                          @RequestParam(name = "fail", required = false) Boolean fail) {
+//        if (fail != null) {
+//            model.addAttribute("errMessage", "User with this username already exists!");
+//        }
+//        model.addAttribute("fail", fail != null);
+//        return "regPage";
+//    }
+     */
+
     @GetMapping("/reg")
-    public String regPage(Model model,
-                          @RequestParam(name = "fail", required = false) Boolean fail) {
-        if (fail != null) {
-            model.addAttribute("errMessage", "User with this username already exists!");
-        }
-        model.addAttribute("fail", fail != null);
+    public String regPage() {
         return "regPage";
     }
 
